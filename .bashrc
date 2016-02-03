@@ -144,12 +144,14 @@ function venv {
         if [ "$2" = "-p" ]; then
             if [ -z "$3" ]; then
                 echo "No path provided to Python executable"
-            if [ -z "$4" ]; then
+            elif [ -z "$4" ]; then
                 echo "No path provided for virtualenv"
             else
                 virtualenv -p $3 $4
+            fi
         else
             virtualenv $2
+        fi
     elif [ "$1" = "-d" ]; then
         deactivate
     else
